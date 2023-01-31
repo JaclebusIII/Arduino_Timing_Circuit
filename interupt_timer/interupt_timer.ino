@@ -8,10 +8,10 @@ signed int state = 0;
 
 //interrupt frequency (Hz) = (Arduino clock speed 16,000,000Hz) / (prescaler * (compare match register + 1))
 // this is the compare match register for the 1.115ms clock rate 
-unsigned int ocr = 18; //18 for 1.115s or 17 for 1.088s
+unsigned int ocr = 31; //31 for 2.048ms
 
 // this is how many of those ^^^ ticks it takes to get to 1/24 (.04s)
-const int numstates = 35; //35 for .04025
+const int numstates = 24; //24 for 49.152ms
 
 ISR(TIMER1_COMPA_vect)
 { 
@@ -23,7 +23,7 @@ ISR(TIMER1_COMPA_vect)
       
       digitalWrite(camera1, HIGH);
       break;
-    case 1:
+    case 1:x
       //signal camera2
       //Serial.print("Camera2");
       //Serial.print("   ");
