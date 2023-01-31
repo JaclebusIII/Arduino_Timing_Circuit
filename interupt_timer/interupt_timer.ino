@@ -8,7 +8,7 @@ signed int state = 0;
 
 //interrupt frequency (Hz) = (Arduino clock speed 16,000,000Hz) / (prescaler * (compare match register + 1))
 // this is the compare match register for the 1.115ms clock rate 
-unsigned int ocr = 31; //31 for 2.048ms
+unsigned int cmr = 31; //31 for 2.048ms
 
 // this is how many of those ^^^ ticks it takes to get to 1/24 (.04s)
 const int numstates = 24; //24 for 49.152ms
@@ -81,7 +81,7 @@ void setup()
   TCCR1A = 0;
   TCCR1B = 0; 
   // set this register to how high to count
-  OCR1A = ocr;
+  OCR1A = cmr;
   TCCR1B = (1<<WGM12);
   // this will set the prescale to 1024
   TCCR1B |= (1 << CS12) | (1 << CS10); 
