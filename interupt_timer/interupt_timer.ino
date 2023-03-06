@@ -1,7 +1,7 @@
-#define camera1 8
-#define camera2 7
-#define camera3 5
-#define camera4 6
+#define camera1 11
+#define camera2 10
+#define camera3 7
+#define camera4 8
 
 // this is the "meta counter"
 signed int state = 0;
